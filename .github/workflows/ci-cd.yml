@@ -1,4 +1,4 @@
-name: Publish
+name: Publish and Deploy
 on:
   push:
     branches:
@@ -7,15 +7,25 @@ jobs:
   publish-docker-image:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.TOKEN }}
-    - name: Build and push Docker image
-      run: |
-        docker build . -t ghcr.io/baylakmongush/baylakmongush.com:latest
-        docker push ghcr.io/baylakmongush/baylakmongush.com:latest
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN }}
+      - name: Build and push Docker image
+        run: |
+          docker build . -t ghcr.io/baylakmongush/baylakmongush.com:latest
+          docker push ghcr.io/baylakmongush/baylakmongush.com:latest
+      - name: Install helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      - name: Deploy to Kubernetes using Helm
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          helm upgrade --install my-release charts/ -n my-site --set image.repository=ghcr.io/baylakmongush/baylakmongush.com,image.tag=latest
+          kubectl rollout status deployment/my-release -n my-site
+          kubectl apply -f charts/templates/ingress.yaml -n my-site
