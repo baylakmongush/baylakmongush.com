@@ -9,3 +9,5 @@ _site/
 
 # Log Files
 *.log
+
+Gemfile.lock
