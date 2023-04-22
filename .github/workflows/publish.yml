@@ -1,0 +1,21 @@
+name: Publish
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.TOKEN }}
+    - name: Build and push Docker image
+      run: |
+        docker build . -t ghcr.io/baylakmongush/baylakmongush.com:latest
+        docker push ghcr.io/baylakmongush/baylakmongush.com:latest

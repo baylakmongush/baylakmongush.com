@@ -1,0 +1,9 @@
+.github
+.infra
+venv
+.gitignore
+Dockerfile
+README.md
+.idea
+.git
+.dockerignore

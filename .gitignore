@@ -1,0 +1,11 @@
+venv
+.DS_Store
+# Ruby Gems
+*.gem
+
+# Design Files
+*.psd
+*.ai
+
+# IntelliJ
+.idea
