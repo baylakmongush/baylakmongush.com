@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: mysite-deployment
   namespace: my-site
-  app.kubernetes.io/instance: {{ .Release.Name }}
-  app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: 1
   selector:

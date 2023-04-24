@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: my-site-ingress
   namespace: my-site
-  app.kubernetes.io/instance: {{ .Release.Name }}
-  app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/tls-acme: "true"
