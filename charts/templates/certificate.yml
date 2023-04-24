@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: {{ .Values.certificate.name }}
   dnsNames:
-    - {{ .Values.certificate.dnsName[0] }}
+    - baylakmongush.com
   issuerRef:
     name: {{ .Values.certificate.issuerRef.name }}
     kind: ClusterIssuer

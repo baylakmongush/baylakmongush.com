@@ -10,7 +10,7 @@ spec:
     {{- toYaml .Values.ingress.tls | nindent 4 }}
   ingressClassName: {{ .Values.ingress.class }}
   rules:
-    - host: {{ .Values.ingress.tls[0].hosts[0] }}
+    - host: baylakmongush.com
       http:
         paths:
           - path: /
