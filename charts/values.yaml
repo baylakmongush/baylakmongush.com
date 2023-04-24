@@ -1,9 +1,10 @@
 name: mysite
+namespace: my-site
 replicas: 1
 
 image:
   repository: ghcr.io/baylakmongush/baylakmongush.com
-  tag: latest
+  tag: {{ .Values.image.tag }}
   containerPort: 80
   pullPolicy: Always
   pullSecrets: my-site-creds
