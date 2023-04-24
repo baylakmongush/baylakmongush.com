@@ -4,7 +4,7 @@ replicas: 1
 
 image:
   repository: ghcr.io/baylakmongush/baylakmongush.com
-  tag: {{ .Values.image.tag }}
+  tag: latest
   containerPort: 80
   pullPolicy: Always
   pullSecrets: my-site-creds
