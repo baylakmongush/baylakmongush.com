@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-deployment
-  namespace: {{ .Values.namespace }}
+  name: mysite-deployment
+  namespace: my-site
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: mysite
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: mysite
     spec:
       containers:
-      - name: {{ .Values.name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - name: mysite
+        image: ghcr.io/baylakmongush/baylakmongush.com:{{ .Values.image.tag }}
         ports:
-          - containerPort: {{ .Values.image.containerPort }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+          - containerPort: 80
+        imagePullPolicy: Always
       imagePullSecrets:
-      - name: {{ .Values.image.pullSecrets }}
+      - name: my-site-creds

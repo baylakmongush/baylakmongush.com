@@ -1,14 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.ingress.name }}
-  namespace: {{ .Values.namespace }}
+  name: my-site-ingress
+  namespace: my-site
   annotations:
-    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/tls-acme: "true"
 spec:
   tls:
-    {{- toYaml .Values.ingress.tls | nindent 4 }}
-  ingressClassName: {{ .Values.ingress.class }}
+    - hosts:
+        - baylakmongush.com
+      secretName: tls
+  ingressClassName: nginx
   rules:
     - host: baylakmongush.com
       http:
@@ -17,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.service.name }}
+                name: my-site-service
                 port:
                   name: http

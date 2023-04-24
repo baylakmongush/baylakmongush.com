@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.service.name }}
-  namespace: {{ .Values.namespace }}
+  name: my-site-service
+  namespace: my-site
 spec:
   selector:
-    app: {{ .Values.name }}
+    app: mysite
   ports:
-    - name: http
-      protocol: TCP
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: http

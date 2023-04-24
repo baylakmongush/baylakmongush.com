@@ -1,13 +1,17 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: {{ .Values.clusterIssuer.name }}
+  name: letsencrypt-prod
 spec:
   acme:
-    email: {{ .Values.clusterIssuer.email }}
-    server: {{ .Values.clusterIssuer.server }}
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: mongush.baylak17@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: {{ .Values.clusterIssuer.name }}
+      name: letsencrypt-prod
+    # Add a single challenge solver, HTTP01 using nginx
     solvers:
       - http01:
           ingress:
