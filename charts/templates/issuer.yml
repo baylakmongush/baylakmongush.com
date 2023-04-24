@@ -4,14 +4,10 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    # You must replace this email address with your own.
-    # Let's Encrypt will use this to contact you about expiring
-    # certificates, and issues related to your account.
-    email: mongush.baylak17@gmail.com
-    server: https://acme-v02.api.letsencrypt.org/directory
+    email: {{ .Values.cert.email }}
+    server: {{ .Values.cert.server }}
     privateKeySecretRef:
       name: letsencrypt-prod
-    # Add a single challenge solver, HTTP01 using nginx
     solvers:
       - http01:
           ingress:

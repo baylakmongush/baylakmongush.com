@@ -26,3 +26,5 @@ jobs:
           exec: |
             helm upgrade --install my-site charts \
             --set image.tag=${{ github.run_number }}
+            --set cert.email=$EMAIL
+            --set cert.server=$SERVER

@@ -4,3 +4,6 @@ image:
   containerPort: 80
   pullPolicy: Always
   pullSecrets: my-site-creds
+cert:
+  email: email
+  server: server
