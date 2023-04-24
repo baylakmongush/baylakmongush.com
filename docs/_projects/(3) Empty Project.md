@@ -1,7 +1,7 @@
 ---
-name: Empty Project
-tools: [Node JS, JavaScript, HTML, CSS]
+name: A Guide to DevOps
+tools: [DevOps, Author]
 image:
-description: This project has no image or showcase page, but it is still a beautiful project inside out!
-external_url: https://github.com/baylakmongush
+description: A Guide to DevOps Tools: Materials to study and Examples.
+external_url: https://github.com/baylakmongush/DevOps
 ---
