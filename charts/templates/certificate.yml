@@ -3,6 +3,8 @@ kind: Certificate
 metadata:
   name: tls
   namespace: my-site
+  app.kubernetes.io/instance: {{ .Release.Name }}
+  app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   secretName: tls
   dnsNames:
