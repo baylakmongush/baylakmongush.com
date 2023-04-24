@@ -19,13 +19,10 @@ jobs:
         run: |
           docker build . -t ghcr.io/baylakmongush/baylakmongush.com:${{ github.run_number }}
           docker push ghcr.io/baylakmongush/baylakmongush.com:${{ github.run_number }}
-      - name: Install helm
-        run: |
-          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-      - name: Deploy to Kubernetes using Helm
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
-        run: |
-          helm upgrade --install my-site charts
-          --set timestamp=${{ steps.date.outputs.date }}
-          --set image.tag=${{ github.run_number }}
+      - name: Deploy
+        uses: WyriHaximus/github-action-helm3@v2
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          exec: |
+            helm upgrade --install charts \
+            --set image.tag=${{ github.run_number }}
