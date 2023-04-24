@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-site.fullname" . }}
-  labels:
-    {{- include "my-site.labels" . | nindent 4 }}
+  name: {{ .Values.name }}-deployment
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      {{- include "my-site.selectorLabels" . | nindent 6 }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
-        {{- include "my-site.selectorLabels" . | nindent 8 }}
+        app: {{ .Values.name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - containerPort: 80
+      - name: {{ .Values.name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+          - containerPort: {{ .Values.image.containerPort }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
       imagePullSecrets:
-        - name: my-site-creds
+      - name: {{ .Values.image.pullSecrets }}

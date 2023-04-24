@@ -1,13 +1,17 @@
+name: mysite
 replicas: 1
 
 image:
   repository: ghcr.io/baylakmongush/baylakmongush.com
   tag: latest
+  containerPort: 80
   pullPolicy: Always
+  pullSecrets: my-site-creds
 
 service:
   name: my-site-service
   port: 80
+  targetPort: 80
 
 ingress:
   name: my-site-ingress
