@@ -24,5 +24,5 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
           exec: |
-            helm upgrade --install charts \
+            helm upgrade --install my-site charts \
             --set image.tag=${{ github.run_number }}
