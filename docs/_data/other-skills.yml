@@ -1,7 +1,27 @@
-- name: Adobe Photoshop
-  percentage: 95
+- name: Kubernetes
+  percentage: 80
   color: info
 
-- name: Adobe Illustrator
+- name: Docker
+  percentage: 90
+  color: success
+
+- name: Kafka
+  percentage: 90
+  color: success
+
+- name: Clickhouse
+  percentage: 90
+  color: success
+
+- name: Jenkins
+  percentage: 90
+  color: success
+
+- name: Ansible
+  percentage: 90
+  color: success
+
+- name: CI/CD
   percentage: 90
   color: success

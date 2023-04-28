@@ -1,17 +1,15 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: DevOps Engineer, Sber
+  from: 2021
+  to: 2023
+  description: Development and management of CI/CD processes using various tools such as Git, Jenkins, Jira.
+              - Participation in writing Ansible playbooks and roles for deploying applications such as Nifi, Flink, and for basic configuration of RHEL Linux servers.
+              - Maintenance and administration of products for data streaming and processing from Kafka based on Apache Flink and Apache NiFi, Clickhouse.
+              - Writing scripts and tools for automation (Bash, Python) and their documentation for users.
+              - Working on defects and incidents to resolve technical issues.
+              - Administration and maintenance of servers in test and production environments.
+              - Support and development of monitoring systems (Grafana, Zabbix).
 
-- title: Software Engineer, Google, UK
-  from: 2018
-  to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: Student, Ecole 42, Computer Science
+  from: 2019
+  to: 2022
+  description: During my time at Ecole 42, you likely gained a deep understanding of computer science concepts and programming fundamentals. I probably honed your skills in a variety of programming languages, such as C and Python, and learned how to solve complex problems through algorithmic thinking and debugging.
