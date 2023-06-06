@@ -1,4 +1,4 @@
-#baylakmongush.com
+# baylakmongush.com
 
 baylakmongush.com is my personal website, built with [the PortfolYOU Jekyll theme](https://github.com/YoussefRaafatNasry/portfolYOU), hosted on Kubernetes, and automated with Github Actions. This website serves as a platform for showcasing my projects and sharing my knowledge with the community.
 
